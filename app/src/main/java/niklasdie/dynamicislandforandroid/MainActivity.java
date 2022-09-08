@@ -1,10 +1,10 @@
 package niklasdie.dynamicislandforandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,17 +18,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // method for starting the service
-    public void startService(){
+    public void startService() {
         // check if the user has already granted
         // the Draw over other apps permission
-        if(Settings.canDrawOverlays(this)) {
+        if (Settings.canDrawOverlays(this)) {
             // start the service based on the android version
             startForegroundService(new Intent(this, ForegroundService.class));
         }
     }
 
     // method to ask user to grant the Overlay permission
-    public void checkOverlayPermission(){
+    public void checkOverlayPermission() {
         if (!Settings.canDrawOverlays(this)) {
             // send user to the device settings
             startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
