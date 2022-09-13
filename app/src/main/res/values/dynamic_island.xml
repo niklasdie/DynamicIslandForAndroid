@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DynamicIsland">
+        <attr name="isPill" format="boolean" />
+        <attr name="holeRadius" format="integer" />
+        <attr name="pillLength" format="integer" />
+        <attr name="islandXPos" format="integer"/>
+        <attr name="islandYPos" format="integer"/>
+        <attr name="showText" format="boolean" />
+        <attr name="textHeight" format="integer" />
+        <attr name="leftText" format="string" />
+        <attr name="rightText" format="string" />
+    </declare-styleable>
+</resources>

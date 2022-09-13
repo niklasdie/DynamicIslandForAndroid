@@ -11,15 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class Window {
 
     // declaring required variables
     private final Context context;
     private final View mView;
-    private WindowManager.LayoutParams mParams;
     private final WindowManager mWindowManager;
+    private WindowManager.LayoutParams mParams;
     private final LayoutInflater layoutInflater;
+//    private final Button btnActivate;
 
     public Window(Context context) {
         this.context = context;
@@ -40,15 +42,16 @@ public class Window {
         // getting a LayoutInflater
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // inflating the view with the custom layout we created
-        mView = layoutInflater.inflate(R.layout.popup_window, null);
+        mView = layoutInflater.inflate(R.layout.dynamic_island_window, null);
         // set onClickListener on the remove button, which removes
         // the view from the window
-        mView.findViewById(R.id.window_close).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                close();
-            }
-        });
+//        mView.findViewById(R.id.window_close).setOnClickListener(view -> close());
+
+//        btnActivate = mView.findViewById(R.id.btnActivate);
+//        btnActivate.setOnClickListener(event -> {
+//
+//        });
+
         // Define the position of the
         // window within the screen
         mParams.gravity = Gravity.CENTER;
