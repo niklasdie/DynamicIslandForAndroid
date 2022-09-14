@@ -4,24 +4,28 @@ import static android.content.Context.WINDOW_SERVICE;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
-import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.Switch;
+
+import com.google.android.material.slider.Slider;
 
 public class Window {
 
-    // declaring required variables
     private final Context context;
     private final View mView;
     private final WindowManager mWindowManager;
     private WindowManager.LayoutParams mParams;
     private final LayoutInflater layoutInflater;
-//    private final Button btnActivate;
+    private View dynamicIsland;
+    private Switch confModeSwitch;
+    private Slider sizeSlider;
+    private Slider xPosSlider;
+    private Slider yPosSlider;
 
     public Window(Context context) {
         this.context = context;
@@ -43,20 +47,23 @@ public class Window {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // inflating the view with the custom layout we created
         mView = layoutInflater.inflate(R.layout.dynamic_island_window, null);
-        // set onClickListener on the remove button, which removes
-        // the view from the window
-//        mView.findViewById(R.id.window_close).setOnClickListener(view -> close());
 
-//        btnActivate = mView.findViewById(R.id.btnActivate);
-//        btnActivate.setOnClickListener(event -> {
-//
-//        });
+        confModeSwitch = mView.findViewById(R.id.confModeSwitch);
+        sizeSlider = mView.findViewById(R.id.sizeSlider);
+        xPosSlider = mView.findViewById(R.id.xPosSlider);
+        yPosSlider = mView.findViewById(R.id.yPosSlider);
+
+        dynamicIsland = mView.findViewById(R.id.dynamicIsland);
 
         // Define the position of the
         // window within the screen
         mParams.gravity = Gravity.CENTER;
         mWindowManager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
 
+//        sizeSlider.setValue(20);
+//        xPosSlider.setValue(
+//                Math.abs((float) (mWindowManager.getCurrentWindowMetrics().getBounds().width() / 2)));
+//        yPosSlider.setValue(20);
     }
 
     public void open() {

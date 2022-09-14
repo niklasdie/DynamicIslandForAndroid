@@ -2,7 +2,8 @@
     android:width="109dp"
     android:height="109dp"
     android:viewportWidth="109"
-    android:viewportHeight="109">
+    android:viewportHeight="109"
+    android:id="@+id/dynamicIsland">
   <path
       android:fillColor="#FF000000"
       android:pathData="M54.5,54.5m-54.5,0a54.5,54.5 0,1 1,109 0a54.5,54.5 0,1 1,-109 0"/>
