@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:translationX="0dp"
+    android:translationY="0dp">
+
+    <!--        <niklasdie.dynamicislandforandroid.DynamicIslandView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            custom:holeRadius="10"-->
+    <!--            custom:isPill="false"-->
+    <!--            custom:islandXPos="300"-->
+    <!--            custom:islandYPos="300"-->
+    <!--            custom:leftText=""-->
+    <!--            custom:pillLength="0"-->
+    <!--            custom:rightText=""-->
+    <!--            custom:showText="false"-->
+    <!--            custom:textHeight="8" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/circle_1"-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:contentDescription="@string/dynis"-->
+<!--        android:src="@drawable/circle" />-->
+
+    <ImageView
+        android:id="@+id/circle_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_circle" />
+</LinearLayout>

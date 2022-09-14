@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         // the Draw over other apps permission
         if (Settings.canDrawOverlays(this)) {
             // start the service based on the android version
-            startForegroundService(new Intent(this, ForegroundService.class));
+            this.startForegroundService(new Intent(this, ForegroundService.class));
         }
     }
 
@@ -41,5 +41,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         startService();
+    }
+
+    public void restartService() {
+        this.stopService(new Intent(this, ForegroundService.class));
+        this.startService();
     }
 }
