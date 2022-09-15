@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@null"
-    android:gravity="center_horizontal"
+    android:id="@+id/dynamicIsland"
+    android:gravity="start"
     android:orientation="vertical"
     android:translationX="0dp"
     android:translationY="0dp">
@@ -22,16 +24,22 @@
     <!--            custom:showText="false"-->
     <!--            custom:textHeight="8" />-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/circle_1"-->
-<!--        android:layout_width="20dp"-->
-<!--        android:layout_height="20dp"-->
-<!--        android:contentDescription="@string/dynis"-->
-<!--        android:src="@drawable/circle" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/circle_1"-->
+    <!--        android:layout_width="20dp"-->
+    <!--        android:layout_height="20dp"-->
+    <!--        android:contentDescription="@string/dynis"-->
+    <!--        android:src="@drawable/circle" />-->
 
     <ImageView
         android:id="@+id/circle_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_circle" />
-</LinearLayout>
+        android:src="@drawable/ic_circle"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintHorizontal_bias="0.498"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toTopOf="parent"
+        custom:layout_constraintVertical_bias="0.001" />
+</androidx.constraintlayout.widget.ConstraintLayout>

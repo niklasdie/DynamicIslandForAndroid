@@ -12,6 +12,7 @@ import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
 
 public class ForegroundService extends Service {
+
     public ForegroundService() {
     }
 

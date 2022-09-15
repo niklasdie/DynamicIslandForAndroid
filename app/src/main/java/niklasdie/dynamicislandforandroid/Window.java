@@ -21,11 +21,6 @@ public class Window {
     private final WindowManager mWindowManager;
     private WindowManager.LayoutParams mParams;
     private final LayoutInflater layoutInflater;
-    private View dynamicIsland;
-    private Switch confModeSwitch;
-    private Slider sizeSlider;
-    private Slider xPosSlider;
-    private Slider yPosSlider;
 
     public Window(Context context) {
         this.context = context;
@@ -34,11 +29,11 @@ public class Window {
         mParams = new WindowManager.LayoutParams(
                 // Shrink the window to wrap the content rather
                 // than filling the screen
-                WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
                 // Display it on top of other application windows
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 // Don't let it grab the input focus
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 // Make the underlying application window visible
                 // through any transparent parts
                 PixelFormat.TRANSLUCENT);
@@ -47,23 +42,23 @@ public class Window {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // inflating the view with the custom layout we created
         mView = layoutInflater.inflate(R.layout.dynamic_island_window, null);
+        mView.setForegroundGravity(Gravity.START);
 
-        confModeSwitch = mView.findViewById(R.id.confModeSwitch);
-        sizeSlider = mView.findViewById(R.id.sizeSlider);
-        xPosSlider = mView.findViewById(R.id.xPosSlider);
-        yPosSlider = mView.findViewById(R.id.yPosSlider);
-
-        dynamicIsland = mView.findViewById(R.id.dynamicIsland);
-
-        // Define the position of the
-        // window within the screen
-        mParams.gravity = Gravity.CENTER;
+        // Define the position of the window within the screen
+        mParams.gravity = Gravity.START;
         mWindowManager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
 
-//        sizeSlider.setValue(20);
-//        xPosSlider.setValue(
-//                Math.abs((float) (mWindowManager.getCurrentWindowMetrics().getBounds().width() / 2)));
-//        yPosSlider.setValue(20);
+        // Define sliders
+        mView.setScaleX(MainActivity.sizeSlider.getValue());
+        mView.setScaleY(MainActivity.sizeSlider.getValue());
+        mView.setTranslationX(MainActivity.xPosSlider.getValue());
+        mView.setTranslationY(MainActivity.yPosSlider.getValue());
+        MainActivity.sizeSlider.addOnChangeListener((slider, value, fromUser) -> {
+            mView.setScaleX(slider.getValue());
+            mView.setScaleY(slider.getValue());
+        });
+        MainActivity.xPosSlider.addOnChangeListener((slider, value, fromUser) -> mView.setTranslationX(slider.getValue()));
+        MainActivity.yPosSlider.addOnChangeListener((slider, value, fromUser) -> mView.setTranslationY(slider.getValue()));
     }
 
     public void open() {
