@@ -1,0 +1,18 @@
+{
+  "models": {
+    "PIXEL_6_PRO": {
+      "size": 0.24,
+      "xPos": 0,
+      "yPos": -120,
+      "isPill": false,
+      "pillWidth": 0
+    },
+    "TEST": {
+      "size": 0.5,
+      "xPos": 0,
+      "yPos": -50,
+      "isPill": false,
+      "pillWidth": 0
+    }
+  }
+}

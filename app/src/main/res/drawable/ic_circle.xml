@@ -7,6 +7,6 @@
     android:viewportHeight="109"
     android:id="@+id/dynamicIsland">
   <path
-      android:fillColor="#FF000000"
+      android:fillColor="#000000"
       android:pathData="M54.5,54.5m-54.5,0a54.5,54.5 0,1 1,109 0a54.5,54.5 0,1 1,-109 0"/>
 </vector>

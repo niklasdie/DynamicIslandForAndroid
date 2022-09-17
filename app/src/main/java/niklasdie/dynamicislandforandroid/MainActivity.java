@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         WindowManager mWindowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
 
-        sizeSlider.setValue(1);
-        sizeSlider.setValueTo(10);
+        sizeSlider.setValue(0.5f);
+        sizeSlider.setValueFrom(0.1f);
+        sizeSlider.setValueTo(1);
         xPosSlider.setValue(0);
         xPosSlider.setValueFrom(
                 - Math.abs((float) (mWindowManager.getCurrentWindowMetrics().getBounds().width() / 2)));
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 Math.abs((float) (mWindowManager.getCurrentWindowMetrics().getBounds().width() / 2)));
         yPosSlider.setValue(0);
         yPosSlider.setValueFrom(0);
-        yPosSlider.setValueTo((float) mWindowManager.getCurrentWindowMetrics().getBounds().height());
+        yPosSlider.setValueTo(160);
 
         this.checkOverlayPermission();
         this.startService();
