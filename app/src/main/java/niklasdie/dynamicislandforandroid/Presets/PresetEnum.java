@@ -1,6 +1,7 @@
 package niklasdie.dynamicislandforandroid.Presets;
 
 public enum PresetEnum {
+    CUSTOM("Custom"),
     PIXEL_6_PRO ("PIXEL_6_PRO"),
     TEST("TEST");
 

@@ -4,37 +4,57 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.slider.Slider;
 
+import java.util.ArrayList;
+
+import niklasdie.dynamicislandforandroid.Presets.Preset;
+
 public class MainActivity extends AppCompatActivity {
 
+    public static Spinner presetSpinner;
     public static Switch confModeSwitch;
     public static Slider sizeSlider;
     public static Slider xPosSlider;
     public static Slider yPosSlider;
+    public static Button saveButton;
+
+    public static Preset preset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
 
+        presetSpinner = this.findViewById(R.id.preset_spinner);
         confModeSwitch = this.findViewById(R.id.confModeSwitch);
         sizeSlider = this.findViewById(R.id.sizeSlider);
         xPosSlider = this.findViewById(R.id.xPosSlider);
         yPosSlider = this.findViewById(R.id.yPosSlider);
+        saveButton = this.findViewById(R.id.save_button);
+
+        preset = new Preset();
 
         WindowManager mWindowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
+
+        ArrayAdapter adapter = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, new ArrayList<>(Preset.presents.keySet()));
+        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        presetSpinner.setAdapter(adapter);
 
         sizeSlider.setValue(0.5f);
         sizeSlider.setValueFrom(0.1f);
         sizeSlider.setValueTo(1);
         xPosSlider.setValue(0);
         xPosSlider.setValueFrom(
-                - Math.abs((float) (mWindowManager.getCurrentWindowMetrics().getBounds().width() / 2)));
+                -Math.abs((float) (mWindowManager.getCurrentWindowMetrics().getBounds().width() / 2)));
         xPosSlider.setValueTo(
                 Math.abs((float) (mWindowManager.getCurrentWindowMetrics().getBounds().width() / 2)));
         yPosSlider.setValue(0);

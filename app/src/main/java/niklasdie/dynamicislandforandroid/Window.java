@@ -10,17 +10,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 
-import niklasdie.dynamicislandforandroid.Presets.Present;
+import niklasdie.dynamicislandforandroid.Presets.Preset;
 import niklasdie.dynamicislandforandroid.Presets.PresetEnum;
 
-public class Window {
+public class Window implements AdapterView.OnItemSelectedListener {
 
     private final Context context;
     private View mView;
     private final WindowManager mWindowManager;
     private WindowManager.LayoutParams mParams;
     private final LayoutInflater layoutInflater;
+
+    public float oldSize;
+    public float oldXPos;
+    public float oldYPos;
 
     public Window(Context context) {
         this.context = context;
@@ -54,7 +59,9 @@ public class Window {
         mParams.gravity = Gravity.TOP;
         mWindowManager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
 
-        // Define sliders
+        // View logic
+        MainActivity.presetSpinner.setOnItemSelectedListener(this);
+
         MainActivity.sizeSlider.addOnChangeListener((slider, value, fromUser) -> {
             mView.setScaleX(slider.getValue());
             mView.setScaleY(slider.getValue());
@@ -79,6 +86,25 @@ public class Window {
             }
             open();
         });
+
+        MainActivity.saveButton.setOnClickListener(event -> {
+            if (Preset.presents.containsKey(PresetEnum.CUSTOM)) {
+                Preset.presents.replace(PresetEnum.CUSTOM, new Preset(
+                        MainActivity.sizeSlider.getValue(),
+                        MainActivity.xPosSlider.getValue(),
+                        MainActivity.yPosSlider.getValue(),
+                        false,
+                        0f));
+            } else {
+                Preset.presents.put(PresetEnum.CUSTOM, new Preset(
+                        MainActivity.sizeSlider.getValue(),
+                        MainActivity.xPosSlider.getValue(),
+                        MainActivity.yPosSlider.getValue(),
+                        false,
+                        0f));
+            }
+        });
+
     }
 
     public void open() {
@@ -125,9 +151,24 @@ public class Window {
     }
 
     public void loadPreset(PresetEnum presetEnum) {
-        Present present = new Present().get(presetEnum);
-        MainActivity.sizeSlider.setValue(present.size);
-        MainActivity.xPosSlider.setValue(present.xPos);
-        MainActivity.yPosSlider.setValue(present.yPos);
+        Preset preset = MainActivity.preset.get(presetEnum);
+        oldSize = MainActivity.sizeSlider.getValue();
+        oldXPos = MainActivity.xPosSlider.getValue();
+        oldYPos = MainActivity.yPosSlider.getValue();
+        MainActivity.sizeSlider.setValue(preset.size);
+        MainActivity.xPosSlider.setValue(preset.xPos);
+        MainActivity.yPosSlider.setValue(preset.yPos);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
+        this.loadPreset((PresetEnum) MainActivity.presetSpinner.getAdapter().getItem(pos));
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+//        MainActivity.sizeSlider.setValue(oldSize);
+//        MainActivity.xPosSlider.setValue(oldXPos);
+//        MainActivity.yPosSlider.setValue(oldYPos);
     }
 }

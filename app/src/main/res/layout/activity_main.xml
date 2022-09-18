@@ -9,16 +9,48 @@
     android:paddingTop="30dp"
     tools:context=".MainActivity">
 
-    <Switch
-        android:id="@+id/confModeSwitch"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:minHeight="48dp"
-        android:text="Configuation Mode"
-        android:textColor="@color/purple_500"
-        android:textSize="18sp"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Configuration Mode"
+            android:textColor="@color/purple_500"
+            android:textSize="18sp" />
+
+        <Switch
+            android:id="@+id/confModeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:minHeight="48dp"
+            android:textColor="@color/purple_500"
+            android:textSize="18sp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Preset"
+            android:textColor="@color/purple_500"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/preset_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="49dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -28,10 +60,10 @@
         <TextView
             android:layout_width="85dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
-            android:textColor="@color/purple_500"
             android:gravity="center_vertical"
-            android:text="Size" />
+            android:text="Size"
+            android:textColor="@color/purple_500"
+            android:textSize="18sp" />
 
         <com.google.android.material.slider.Slider
             android:id="@+id/sizeSlider"
@@ -91,5 +123,11 @@
             android:valueTo="100" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save" />
 
 </LinearLayout>
