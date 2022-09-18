@@ -65,7 +65,7 @@ public class Window implements AdapterView.OnItemSelectedListener {
         MainActivity.sizeSlider.addOnChangeListener((slider, value, fromUser) -> {
             mView.setScaleX(slider.getValue());
             mView.setScaleY(slider.getValue());
-            MainActivity.yPosSlider.setValueFrom(-(150 - MainActivity.sizeSlider.getValue() * 150) - 15);
+            MainActivity.yPosSlider.setValueFrom(-(150 - MainActivity.sizeSlider.getValue() * 150) - 40);
             if (MainActivity.yPosSlider.getValue() < MainActivity.yPosSlider.getValueFrom()) {
                 MainActivity.yPosSlider.setValue(MainActivity.yPosSlider.getValueFrom());
             }
@@ -121,7 +121,7 @@ public class Window implements AdapterView.OnItemSelectedListener {
                     mView.setTranslationX(MainActivity.xPosSlider.getValue());
                     mView.setTranslationY(MainActivity.yPosSlider.getValue());
                     loadPreset(PresetEnum.PIXEL_6_PRO);
-                    MainActivity.yPosSlider.setValueFrom(-(150 - MainActivity.sizeSlider.getValue() * 150) - 15);
+                    MainActivity.yPosSlider.setValueFrom(-(150 - MainActivity.sizeSlider.getValue() * 150) - 40);
                     if (MainActivity.yPosSlider.getValue() < MainActivity.yPosSlider.getValueFrom()) {
                         MainActivity.yPosSlider.setValue(MainActivity.yPosSlider.getValueFrom());
                     }

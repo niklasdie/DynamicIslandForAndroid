@@ -2,10 +2,16 @@ package niklasdie.dynamicislandforandroid.Presets;
 
 public enum PresetEnum {
     CUSTOM("Custom"),
-    PIXEL_6_PRO ("PIXEL_6_PRO"),
-    TEST("TEST");
+    PIXEL_6_PRO ("Pixel 6 Pro"),
+    TEST("Test");
 
-    private PresetEnum(String value) {
+    private final String value;
 
+    PresetEnum(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return this.value;
     }
 }
