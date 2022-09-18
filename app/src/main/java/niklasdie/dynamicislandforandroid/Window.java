@@ -85,6 +85,9 @@ public class Window implements AdapterView.OnItemSelectedListener {
                 mView.setForegroundGravity(Gravity.TOP);
             }
             open();
+            MainActivity.sizeSlider.setValue(oldSize);
+            MainActivity.xPosSlider.setValue(oldXPos);
+            MainActivity.yPosSlider.setValue(oldYPos);
         });
 
         MainActivity.saveButton.setOnClickListener(event -> {
@@ -136,6 +139,9 @@ public class Window implements AdapterView.OnItemSelectedListener {
     public void close() {
 
         try {
+            oldSize = MainActivity.sizeSlider.getValue();
+            oldXPos = MainActivity.xPosSlider.getValue();
+            oldYPos = MainActivity.yPosSlider.getValue();
             // remove the view from the window
             ((WindowManager) context.getSystemService(WINDOW_SERVICE)).removeView(mView);
             // invalidate the view
