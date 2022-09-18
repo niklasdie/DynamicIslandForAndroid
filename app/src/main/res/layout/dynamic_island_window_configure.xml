@@ -33,7 +33,7 @@
         android:id="@+id/circle_1"
         android:layout_width="wrap_content"
         android:layout_height="110dp"
-        android:src="@drawable/ic_circle"
+        android:src="@drawable/ic_circle_conf"
         custom:layout_constraintBottom_toBottomOf="parent"
         custom:layout_constraintEnd_toEndOf="parent"
         custom:layout_constraintHorizontal_bias="0.498"

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="109"
+    android:viewportHeight="109"
+    android:shape="oval"
+    android:id="@+id/dynamicIsland2">
     <solid android:color="#FF0000" />
 </shape>
