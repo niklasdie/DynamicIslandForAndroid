@@ -27,6 +27,8 @@ public class Window implements AdapterView.OnItemSelectedListener {
     public float oldXPos;
     public float oldYPos;
 
+    public PresetEnum loadedPreset;
+
     public Window(Context context) {
         this.context = context;
 
@@ -108,6 +110,9 @@ public class Window implements AdapterView.OnItemSelectedListener {
             }
         });
 
+        MainActivity.resetButton.setOnClickListener(event -> {
+            this.loadPreset(loadedPreset);
+        });
     }
 
     public void open() {
@@ -164,6 +169,7 @@ public class Window implements AdapterView.OnItemSelectedListener {
         MainActivity.sizeSlider.setValue(preset.size);
         MainActivity.xPosSlider.setValue(preset.xPos);
         MainActivity.yPosSlider.setValue(preset.yPos);
+        this.loadedPreset = presetEnum;
     }
 
     @Override

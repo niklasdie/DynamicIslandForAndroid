@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="confModeSwitch" type="id" />
+    <item name="preset_spinner" type="id" />
+    <item name="sizeSlider" type="id" />
+    <item name="xPosSlider" type="id" />
+    <item name="yPosSlider" type="id" />
+    <item name="reset_button" type="id" />
+    <item name="save_button" type="id" />
+</resources>

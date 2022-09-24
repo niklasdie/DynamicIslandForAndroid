@@ -19,11 +19,17 @@ import niklasdie.dynamicislandforandroid.Presets.Preset;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Button permissions;
+    public static Button configuration;
+    public static Button stopService;
+    public static Button startService;
+
     public static Spinner presetSpinner;
     public static Switch confModeSwitch;
     public static Slider sizeSlider;
     public static Slider xPosSlider;
     public static Slider yPosSlider;
+    public static Button resetButton;
     public static Button saveButton;
 
     public static Preset preset;
@@ -31,7 +37,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_main);
+        this.setContentView(R.layout.configuration); // TODO change to activity_main
+
+        permissions = this.findViewById(R.id.permissions);
+        configuration = this.findViewById(R.id.configure);
+        stopService = this.findViewById(R.id.stop_service);
+        startService = this.findViewById(R.id.start_service);
+
+//        configuration.setOnClickListener(event ->
+//                this.setContentView(R.layout.configuration));
+//        stopService.setOnClickListener(event ->
+//                this.stopService(new Intent(this, ForegroundService.class)));
+//        startService.setOnClickListener(event -> this.startService());
 
         presetSpinner = this.findViewById(R.id.preset_spinner);
         confModeSwitch = this.findViewById(R.id.confModeSwitch);
@@ -39,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         xPosSlider = this.findViewById(R.id.xPosSlider);
         yPosSlider = this.findViewById(R.id.yPosSlider);
         saveButton = this.findViewById(R.id.save_button);
+        resetButton = this.findViewById(R.id.reset_button);
 
         preset = new Preset();
 

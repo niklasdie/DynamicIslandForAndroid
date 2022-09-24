@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">DynamicIslandForAndroid</string>
     <string name="dynis">dynIs</string>
+    <string name="accessibility_service_description">Creates the hole-punch display.</string>
+    <string name="accessibility_service_label">Hole-punch Display</string>
+    <string name="don_t_show_notifications_in_default_bar_not_recommended">Don\'t show notifications in default bar. (Not recommended)</string>
+    <string name="grant_permissions">Grant Permissions</string>
+    <string name="x_offset">X Offsets</string>
+    <string name="y_offset">Y Offsets</string>
+    <string name="reset">Reset</string>
+    <string name="donate">Donate</string>
+    <string name="overlay_height_when_open">Overlay height when open</string>
+    <string name="overlay_height_when_closed">Overlay height when closed</string>
+    <string name="overlay_width_increase_until_sides_dont_crop">Overlay widths (increase until sides don\'t crop)</string>
+    <string name="todo">TODO</string>
 </resources>

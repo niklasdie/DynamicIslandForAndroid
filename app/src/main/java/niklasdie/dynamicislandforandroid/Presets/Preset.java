@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Objects;
 
 import niklasdie.dynamicislandforandroid.MainActivity;
 
@@ -18,6 +19,16 @@ public class Preset {
     public float yPos;
     public boolean isPill;
     public float pillWidth;
+
+    @Override
+    public boolean equals(Object o) {
+        return this.hashCode() == o.hashCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (31 * size + 37 * xPos + 41 * yPos + 47 * pillWidth + (isPill ? 0 : 1));
+    }
 
     public Preset() {
         presents = new HashMap<>();
